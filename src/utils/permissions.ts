@@ -1,0 +1,52 @@
+export const ROLE_PERMISSIONS = {
+  1: ["*"],
+  2: [
+    "employees.view_all",
+    "employees.manage",
+    "attendance.view_all",
+    "attendance.manage",
+    "attendance.mark_own",
+    "leave.view_all",
+    "leave.apply",
+    "leave.approve",
+    "payroll.view_all",
+    "payroll.manage",
+    "reports.view_all",
+    "users.manage",
+  ],
+  3: [
+    "employees.view_department",
+    "attendance.view_department",
+    "attendance.mark_own",
+    "leave.view_department",
+    "leave.apply",
+    "leave.approve",
+    "payroll.view_department",
+    "reports.view_department",
+  ],
+  4: [
+    "employees.view_department",
+    "attendance.view_department",
+    "attendance.mark_own",
+    "attendance.manage",
+    "leave.view_department",
+    "leave.apply",
+    "leave.approve",
+  ],
+  5: [
+    "employees.view_own",
+    "attendance.view_own",
+    "attendance.mark_own",
+    "leave.apply",
+    "leave.view_own",
+    "payroll.view_own",
+  ],
+};
+
+export const ROLE_NAMES = {
+  1: "Super Admin",
+  2: "HR",
+  3: "HOD",
+  4: "Supervisor",
+  5: "Employee",
+};
