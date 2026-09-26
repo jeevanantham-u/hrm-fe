@@ -79,6 +79,12 @@
   color: #2459aa;
 }
 
+.sidebar__link.is-active {
+  background: #f4f8fe;
+  color: #1d4ed8;
+  border-left: 4px solid #1d4ed8;
+}
+
 .sidebar__user-card {
   margin-top: auto;
   border: 1px solid #e2ebf7;

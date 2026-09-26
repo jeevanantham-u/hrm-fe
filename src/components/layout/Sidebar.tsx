@@ -97,9 +97,17 @@ export default function Sidebar() {
         <div className="sidebar__section-label">WORKSPACE</div>
         <nav className="sidebar__nav">
           {items.map((item) => {
+            const active =
+              location.pathname === item.to ||
+              (item.to !== "/dashboard" &&
+                location.pathname.startsWith(item.to));
             const IconComponent = item.icon;
             return (
-              <Link key={item.to} to={item.to} className="sidebar__link">
+              <Link
+                key={item.to}
+                to={item.to}
+                className={`{ sidebar__link ${active ? "is-active" : ""}`}
+              >
                 <IconComponent size={18} />
                 <span>{item.label}</span>
               </Link>
