@@ -25,3 +25,19 @@ export interface AuthApiResponse {
 export async function login(payload) {
   return api.post("/login", payload);
 }
+
+export async function listEmployees() {
+  return api.get("/employee");
+}
+
+export async function getEmployee(id) {
+  return api.get(`/employee/${id}`);
+}
+
+export async function createEmployee(payload) {
+  return api.post("/employee/create", payload);
+}
+
+export async function updateEmployee(id, payload) {
+  return api.patch(`/employee/${id}`, payload);
+}

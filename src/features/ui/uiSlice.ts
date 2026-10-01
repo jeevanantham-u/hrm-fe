@@ -21,8 +21,15 @@ const uiSlice = createSlice({
     toggleSidebar(state) {
       state.sidebarOpen = !state.sidebarOpen;
     },
+    showToast(state, action: PayloadAction<ToastState>) {
+      state.toast = action.payload;
+    },
+    clearToast(state) {
+      state.toast = null;
+    },
   },
 });
 
-export const { setSidebarOpen, toggleSidebar } = uiSlice.actions;
+export const { setSidebarOpen, toggleSidebar, showToast, clearToast } =
+  uiSlice.actions;
 export default uiSlice.reducer;
