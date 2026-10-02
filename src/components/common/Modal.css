@@ -1,0 +1,35 @@
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(12, 29, 54, 0.35);
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  z-index: 90;
+}
+
+.modal-card {
+  width: 100%;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 24px 70px rgba(8, 30, 66, 0.2);
+  border: 1px solid #e1eaf5;
+}
+
+.modal__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 18px;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.modal__head h3 {
+  margin: 0;
+  font-size: 15px;
+  color: #183250;
+}
+
+.modal__body {
+  padding: 18px;
+}

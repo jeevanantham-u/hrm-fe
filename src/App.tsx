@@ -7,6 +7,7 @@ import AppLayout from "./components/layout/AppLayout";
 import EmployeesPage from "./pages/EmployeesPage";
 import EmployeeFormPage from "./pages/EmployeeFormPage";
 import EmployeeDetailsPage from "./pages/EmployeeDetailsPage";
+import UsersPage from "./pages/UsersPage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/employees/new" element={<EmployeeFormPage />} />
           <Route path="/employees/:id/edit" element={<EmployeeFormPage />} />
           <Route path="/employees/:id" element={<EmployeeDetailsPage />} />
+          <Route path="/users" element={<UsersPage />} />
         </Route>
       </Route>
     </Routes>

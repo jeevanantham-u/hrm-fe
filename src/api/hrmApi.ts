@@ -41,3 +41,15 @@ export async function createEmployee(payload) {
 export async function updateEmployee(id, payload) {
   return api.patch(`/employee/${id}`, payload);
 }
+
+export async function listUsers() {
+  return api.get("/users");
+}
+
+export async function updateUser(id, payload) {
+  return api.patch(`/users/${id}`, payload);
+}
+
+export async function updateUserRole(id, role_id) {
+  return api.patch(`/users/${id}/role`, { role_id });
+}

@@ -1,64 +1,66 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import {
   LayoutDashboard,
   Users,
   UserCog,
+  CalendarDays,
   ClipboardList,
   WalletCards,
   ShieldCheck,
-  Clock3,
-  UserRound,
   Settings,
   X,
+  UserRound,
+  Clock3,
 } from "lucide-react";
-
-import "./Sidebar.css";
 import { setSidebarOpen } from "../../features/ui/uiSlice";
+import {
+  getPermissions,
+  getRoleName,
+  hasAnyPermission,
+  hasPermission,
+} from "../../utils/permissions";
+import "./Sidebar.css";
 
 const items = [
-  { label: "Dasboard", to: "/dashboard", icon: LayoutDashboard },
+  { label: "Dashboard", to: "/dashboard", icon: LayoutDashboard },
   {
-    label: "Employee",
+    label: "Employees",
     to: "/employees",
     icon: Users,
-    permission: [
+    permissions: [
       "employees.view_all",
       "employees.view_department",
       "employees.view_own",
     ],
   },
   {
-    label: "User",
+    label: "Users",
     to: "/users",
     icon: UserCog,
-    permission: ["users.manage"],
+    permissions: ["users.manage"],
   },
   {
     label: "Attendance",
-    to: "/Attendance",
+    to: "/attendance",
     icon: Clock3,
-    permission: [
+    permissions: [
       "attendance.view_all",
       "attendance.view_department",
       "attendance.view_own",
     ],
   },
   {
-    label: "Leaves",
+    label: "Leave",
     to: "/leaves",
     icon: ClipboardList,
-    permission: [
-      "leaves.view_all",
-      "leaves.view_department",
-      "leaves.view_own",
-    ],
+    permissions: ["leave.view_all", "leave.view_department", "leave.view_own"],
   },
   {
     label: "Payroll",
     to: "/payroll",
     icon: WalletCards,
-    permission: [
+    permissions: [
       "payroll.view_all",
       "payroll.view_department",
       "payroll.view_own",
@@ -73,18 +75,22 @@ const items = [
 ];
 
 export default function Sidebar() {
-  const user = useAppSelector((s) => s.auth.user);
-  const { sidebarOpen } = useAppSelector((s) => s.ui);
+  const location = useLocation();
   const dispatch = useAppDispatch();
-  const role = "domer";
+  const { sidebarOpen } = useAppSelector((state) => state.ui);
+  const user = useAppSelector((state) => state.auth.user);
+  const role = getRoleName(user);
+  const allowed = (item) =>
+    !item.permissions || hasAnyPermission(user, item.permissions);
+
   return (
     <>
-      <aside className={` sidebar ${sidebarOpen ? "sidebar--open" : ""}`}>
+      <aside className={`sidebar ${sidebarOpen ? "sidebar--open" : ""}`}>
         <div className="sidebar__brand">
           <div className="sidebar__brand-mark">H</div>
           <div>
             <strong>HRM</strong>
-            <span>People Opearations</span>
+            <span>People Operations</span>
           </div>
           <button
             className="sidebar__close"
@@ -96,25 +102,23 @@ export default function Sidebar() {
         </div>
         <div className="sidebar__section-label">WORKSPACE</div>
         <nav className="sidebar__nav">
-          {items.map((item) => {
+          {items.filter(allowed).map(({ label, to, icon: Icon }) => {
             const active =
-              location.pathname === item.to ||
-              (item.to !== "/dashboard" &&
-                location.pathname.startsWith(item.to));
-            const IconComponent = item.icon;
+              location.pathname === to ||
+              (to !== "/dashboard" && location.pathname.startsWith(to));
             return (
               <Link
-                key={item.to}
-                to={item.to}
-                className={`{ sidebar__link ${active ? "is-active" : ""}`}
+                key={to}
+                to={to}
+                className={`sidebar__link ${active ? "is-active" : ""}`}
+                onClick={() => dispatch(setSidebarOpen(false))}
               >
-                <IconComponent size={18} />
-                <span>{item.label}</span>
+                <Icon size={18} />
+                <span>{label}</span>
               </Link>
             );
           })}
         </nav>
-
         <div className="sidebar__section-label">ACCOUNT</div>
         <nav className="sidebar__nav">
           <Link
@@ -132,7 +136,6 @@ export default function Sidebar() {
             <span>Settings</span>
           </Link>
         </nav>
-
         <div className="sidebar__user-card">
           <div className="avatar avatar--small">
             {(user?.username || "U").slice(0, 2).toUpperCase()}

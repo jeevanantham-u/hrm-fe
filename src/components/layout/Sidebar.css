@@ -27,19 +27,16 @@
   font-weight: 800;
   box-shadow: 0 8px 20px rgba(37, 99, 235, 0.24);
 }
-
 .sidebar__brand strong {
   display: block;
   font-size: 16px;
 }
-
 .sidebar__brand span {
   display: block;
   color: #7b8aa5;
   font-size: 11px;
   margin-top: 2px;
 }
-
 .sidebar__close {
   display: none;
   margin-left: auto;
@@ -47,7 +44,6 @@
   background: transparent;
   color: #6e7d99;
 }
-
 .sidebar__section-label {
   font-size: 10px;
   font-weight: 800;
@@ -55,12 +51,10 @@
   color: #9aacbf;
   padding: 14px 10px 8px;
 }
-
 .sidebar__nav {
   display: grid;
   gap: 5px;
 }
-
 .sidebar__link {
   display: flex;
   align-items: center;
@@ -73,18 +67,15 @@
   font-weight: 650;
   transition: 0.2s;
 }
-
 .sidebar__link:hover {
   background: #f4f8fe;
   color: #2459aa;
 }
-
 .sidebar__link.is-active {
-  background: #f4f8fe;
-  color: #1d4ed8;
-  border-left: 4px solid #1d4ed8;
+  background: #eaf2ff;
+  color: #1e5ed2;
+  box-shadow: inset 3px 0 0 #2563eb;
 }
-
 .sidebar__user-card {
   margin-top: auto;
   border: 1px solid #e2ebf7;
@@ -95,7 +86,16 @@
   align-items: center;
   gap: 9px;
 }
-
+.sidebar__user-card strong {
+  font-size: 12px;
+  display: block;
+}
+.sidebar__user-card span {
+  font-size: 10px;
+  color: #7b8ba7;
+  display: block;
+  margin-top: 2px;
+}
 .avatar {
   border-radius: 50%;
   background: linear-gradient(135deg, #dbeafe, #eff6ff);
@@ -105,44 +105,26 @@
   font-weight: 800;
   border: 1px solid #cfe0f8;
 }
-
 .avatar--small {
   width: 34px;
   height: 34px;
   font-size: 11px;
 }
-
-.sidebar__user-card strong {
-  font-size: 12px;
-  display: block;
-}
-
-.sidebar__user-card span {
-  font-size: 10px;
-  color: #7b8ba7;
-  display: block;
-  margin-top: 2px;
-}
-
 .sidebar-backdrop {
   display: none;
 }
-
 @media (max-width: 1100px) {
   .sidebar {
     transform: translateX(-105%);
     transition: transform 0.25s ease;
     box-shadow: 10px 0 30px rgba(13, 42, 88, 0.12);
   }
-
   .sidebar--open {
     transform: translateX(0);
   }
-
   .sidebar__close {
     display: block;
   }
-
   .sidebar-backdrop {
     display: block;
     position: fixed;
