@@ -4,7 +4,6 @@ import {
   LayoutDashboard,
   Users,
   UserCog,
-  CalendarDays,
   ClipboardList,
   WalletCards,
   ShieldCheck,
@@ -14,12 +13,7 @@ import {
   Clock3,
 } from "lucide-react";
 import { setSidebarOpen } from "../../features/ui/uiSlice";
-import {
-  getPermissions,
-  getRoleName,
-  hasAnyPermission,
-  hasPermission,
-} from "../../utils/permissions";
+import { getRoleName, hasAnyPermission } from "../../utils/permissions";
 import "./Sidebar.css";
 
 const items = [
