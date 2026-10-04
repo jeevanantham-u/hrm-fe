@@ -35,7 +35,8 @@
   color: #6f7d91;
 }
 
-.status--leave {
+.status--excused,
+.status--half-day {
   background: #edf4ff;
   color: #2a64ca;
 }

@@ -53,3 +53,15 @@ export async function updateUser(id, payload) {
 export async function updateUserRole(id, role_id) {
   return api.patch(`/users/${id}/role`, { role_id });
 }
+
+export async function checkIn() {
+  return api.post("/attendance/check-in");
+}
+
+export async function checkOut() {
+  return api.post("attendance/check-out");
+}
+
+export async function getAttendance(employeeId) {
+  return api.get(`/attendance/employees/${employeeId}`);
+}
