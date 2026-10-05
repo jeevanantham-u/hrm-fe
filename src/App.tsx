@@ -11,6 +11,7 @@ import UsersPage from "./pages/UsersPage";
 import AttendancePage from "./pages/AttendancePage";
 import LeavesPage from "./pages/LeavesPage";
 import ApplyLeavePage from "./pages/ApplyLeavePage";
+import PayrollPage from "./pages/PayrollPage";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="/attendance" element={<AttendancePage />} />
           <Route path="/leaves" element={<LeavesPage />} />
           <Route path="/leaves/apply" element={<ApplyLeavePage />} />
+          <Route path="/payroll" element={<PayrollPage />} />
         </Route>
       </Route>
     </Routes>

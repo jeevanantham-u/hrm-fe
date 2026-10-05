@@ -85,3 +85,11 @@ export async function rejectLeave(id, remarks = "") {
 export async function getEmployeeLeaves(employeeId) {
   return api.get(`/leaves/employees/${employeeId}`);
 }
+
+export async function generatePayroll(payload) {
+  return api.post("/payroll/generate", payload);
+}
+
+export async function getMonthPayroll(month) {
+  return api.get(`/payroll/month/${month}`);
+}
