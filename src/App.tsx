@@ -9,6 +9,8 @@ import EmployeeFormPage from "./pages/EmployeeFormPage";
 import EmployeeDetailsPage from "./pages/EmployeeDetailsPage";
 import UsersPage from "./pages/UsersPage";
 import AttendancePage from "./pages/AttendancePage";
+import LeavesPage from "./pages/LeavesPage";
+import ApplyLeavePage from "./pages/ApplyLeavePage";
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
           <Route path="/employees/:id" element={<EmployeeDetailsPage />} />
           <Route path="/users" element={<UsersPage />} />
           <Route path="/attendance" element={<AttendancePage />} />
+          <Route path="/leaves" element={<LeavesPage />} />
+          <Route path="/leaves/apply" element={<ApplyLeavePage />} />
         </Route>
       </Route>
     </Routes>

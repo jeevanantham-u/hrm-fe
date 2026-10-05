@@ -65,3 +65,23 @@ export async function checkOut() {
 export async function getAttendance(employeeId) {
   return api.get(`/attendance/employees/${employeeId}`);
 }
+
+export async function applyLeave(payload) {
+  return api.post("leaves/apply", payload);
+}
+
+export async function getPendingLeaves() {
+  return api.get("/leaves/pending");
+}
+
+export async function approveLeave(id, remarks = "") {
+  return api.post(`/leaves/${id}/approve`, { remarks });
+}
+
+export async function rejectLeave(id, remarks = "") {
+  return api.post(`/leaves/${id}/reject`, { remarks });
+}
+
+export async function getEmployeeLeaves(employeeId) {
+  return api.get(`/leaves/employees/${employeeId}`);
+}
