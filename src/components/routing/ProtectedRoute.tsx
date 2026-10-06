@@ -6,12 +6,13 @@ export default function ProtectedRoute() {
   const { user, ready } = useAppSelector((s) => s.auth);
   const location = useLocation();
 
-  // if (!ready)
-  //   return (
-  //     <div className="route-loading">
-  //       <div className="loading-dot" />
-  //     </div>
-  //   );
+  if (!ready) {
+    return (
+      <div className="route-loading">
+        <div className="loading-dot" />
+      </div>
+    );
+  }
 
   return user ? (
     <Outlet />

@@ -29,7 +29,7 @@ const initial = loadSession();
 const initialState: AuthState = {
   token: initial.token,
   user: initial.user,
-  ready: false,
+  ready: true,
   loading: false,
   error: null,
 };
