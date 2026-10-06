@@ -13,6 +13,7 @@ import LeavesPage from "./pages/LeavesPage";
 import ApplyLeavePage from "./pages/ApplyLeavePage";
 import PayrollPage from "./pages/PayrollPage";
 import RolesPermissionsPage from "./pages/RolesPermissionsPage";
+import ProfilePage from "./pages/ProfilePage";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path="/leaves/apply" element={<ApplyLeavePage />} />
           <Route path="/payroll" element={<PayrollPage />} />
           <Route path="roles-permissions" element={<RolesPermissionsPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
         </Route>
       </Route>
     </Routes>
