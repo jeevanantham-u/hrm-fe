@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-import { login } from "../../api/hrmApi";
+import { login, updateProfile } from "../../api/hrmApi";
 import { clearSession, loadSession, saveSession } from "../../utils/storage";
 import type { AuthState, RoleUser } from "../../types";
 
@@ -12,6 +12,11 @@ interface LoginPayload {
   token: string;
   user: RoleUser;
 }
+interface ProfilePayload {
+  username: string;
+  email: string;
+  password?: string;
+}
 
 export const loginUser = createAsyncThunk<
   LoginPayload,
@@ -22,6 +27,18 @@ export const loginUser = createAsyncThunk<
   const payload = response.data.data as LoginPayload;
   saveSession(payload.token, payload.user);
   return payload;
+});
+
+export const saveProfile = createAsyncThunk<
+  RoleUser,
+  ProfilePayload,
+  { rejectValue: string }
+>("auth/saveProfile", async (payload) => {
+  const response = await updateProfile(payload);
+  const user = response.data.data as RoleUser;
+  const current = loadSession();
+  if (current.token) saveSession(current.token, user);
+  return user;
 });
 
 const initial = loadSession();
