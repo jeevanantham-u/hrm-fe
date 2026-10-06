@@ -93,3 +93,15 @@ export async function generatePayroll(payload) {
 export async function getMonthPayroll(month) {
   return api.get(`/payroll/month/${month}`);
 }
+
+export async function listRoles() {
+  return api.get("/roles");
+}
+
+export async function listPermissions() {
+  return api.get("/permissions");
+}
+
+export async function updateRolePermissions(roleId, permission_ids) {
+  return api.patch(`/roles/${roleId}/permissions`, { permission_ids });
+}
