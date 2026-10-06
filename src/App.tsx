@@ -12,7 +12,6 @@ import AttendancePage from "./pages/AttendancePage";
 import LeavesPage from "./pages/LeavesPage";
 import ApplyLeavePage from "./pages/ApplyLeavePage";
 import PayrollPage from "./pages/PayrollPage";
-import RolesPermissionsPage from "./pages/RolesPermissionsPage";
 
 function App() {
   return (
@@ -31,7 +30,6 @@ function App() {
           <Route path="/leaves" element={<LeavesPage />} />
           <Route path="/leaves/apply" element={<ApplyLeavePage />} />
           <Route path="/payroll" element={<PayrollPage />} />
-          <Route path="roles-permissions" element={<RolesPermissionsPage />} />
         </Route>
       </Route>
     </Routes>

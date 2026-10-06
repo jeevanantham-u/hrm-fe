@@ -26,14 +26,6 @@ export async function login(payload) {
   return api.post("/login", payload);
 }
 
-export async function getMe() {
-  return api.get("/users/me");
-}
-
-export async function updateProfile(payload) {
-  return api.patch("/users/me", payload);
-}
-
 export async function listEmployees() {
   return api.get("/employee");
 }
@@ -100,16 +92,4 @@ export async function generatePayroll(payload) {
 
 export async function getMonthPayroll(month) {
   return api.get(`/payroll/month/${month}`);
-}
-
-export async function listRoles() {
-  return api.get("/roles");
-}
-
-export async function listPermissions() {
-  return api.get("/permissions");
-}
-
-export async function updateRolePermissions(roleId, permission_ids) {
-  return api.patch(`/roles/${roleId}/permissions`, { permission_ids });
 }
