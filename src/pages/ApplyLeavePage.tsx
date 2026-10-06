@@ -28,7 +28,12 @@ export default function ApplyLeavePage() {
         ...form,
         leave_type_id: Number(form.leave_type_id),
       });
-      dispatch(showToast({ type: "success", message: r.data.message }));
+      dispatch(
+        showToast({
+          type: "success",
+          message: r.data.message || "Leave request submitted successfully",
+        }),
+      );
       navigate("/leaves");
     } catch (e) {
       dispatch(showToast({ type: "error", message: e.message }));

@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-
+import { getMe } from "../../api/hrmApi";
 import { login, updateProfile } from "../../api/hrmApi";
 import { clearSession, loadSession, saveSession } from "../../utils/storage";
 import type { AuthState, RoleUser } from "../../types";
@@ -28,6 +28,23 @@ export const loginUser = createAsyncThunk<
   saveSession(payload.token, payload.user);
   return payload;
 });
+
+export const bootstrapSession = createAsyncThunk<LoginPayload | null>(
+  "auth/bootstrap",
+  async () => {
+    const session = loadSession();
+    if (!session.token || !session.user) return null;
+    try {
+      const response = await getMe();
+      const user = response.data.data as RoleUser;
+      saveSession(session.token, user);
+      return { token: session.token, user };
+    } catch {
+      clearSession();
+      return null;
+    }
+  },
+);
 
 export const saveProfile = createAsyncThunk<
   RoleUser,
