@@ -26,6 +26,14 @@ export async function login(payload) {
   return api.post("/login", payload);
 }
 
+export async function getMe() {
+  return api.get("/users/me");
+}
+
+export async function updateProfile(payload) {
+  return api.patch("/users/me", payload);
+}
+
 export async function listEmployees() {
   return api.get("/employee");
 }

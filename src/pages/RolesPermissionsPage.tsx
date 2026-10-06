@@ -19,12 +19,23 @@ export default function RolesPermissionsPage() {
   const dispatch = useAppDispatch();
   useEffect(() => {
     Promise.all([listRoles(), listPermissions()]).then(([r, p]) => {
-      setRoles(r.data.data || []);
-      setPermissions(p.data.data || []);
-      const first = (r.data.data || [])[0];
+      const roleList = r.data.data || [];
+      const permissionList = p.data.data || [];
+      setRoles(roleList);
+      setPermissions(permissionList);
+      const first = roleList[0];
       if (first) {
         setSelected(first);
-        setChecked([]);
+        setChecked(
+          (first.permissions || [])
+            .map(
+              (name) =>
+                permissionList.find(
+                  (permission) => permission.permission_name === name,
+                )?.id,
+            )
+            .filter(Boolean),
+        );
       }
     });
   }, []);
