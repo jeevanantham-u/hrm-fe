@@ -1,0 +1,132 @@
+.employee-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  background: #0f4aa6;
+  color: #fff;
+  border-radius: 18px;
+  padding: 24px;
+  margin-bottom: 16px;
+  box-shadow: 0 16px 34px rgba(37, 99, 235, 0.15);
+}
+
+.employee-hero__identity {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.employee-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.13);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  font-size: 20px;
+  font-weight: 850;
+}
+
+.employee-hero h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.employee-hero p {
+  margin: 5px 0 9px;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 11px;
+}
+
+.employee-hero .status {
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.detail-card {
+  background: #fff;
+  border: 1px solid #e4edf7;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(34, 66, 112, 0.035);
+}
+
+.detail-card__head h3 {
+  margin: 0;
+  font-size: 14px;
+  color: #173456;
+}
+
+.detail-list {
+  display: grid;
+  margin-top: 16px;
+}
+
+.detail-list > div {
+  display: grid;
+  grid-template-columns: auto 110px 1fr;
+  align-items: center;
+  gap: 9px;
+  padding: 12px 0;
+  border-bottom: 1px solid #eef3f8;
+}
+
+.detail-list > div:last-child {
+  border-bottom: 0;
+}
+
+.detail-list svg {
+  color: #5c7fab;
+}
+
+.detail-list span,
+.detail-kpis span {
+  font-size: 10px;
+  color: #90a0b5;
+}
+
+.detail-list strong,
+.detail-kpis strong {
+  font-size: 11px;
+  color: #2b4465;
+}
+
+.detail-kpis {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.detail-kpis > div {
+  background: #f8fbff;
+  border: 1px solid #eaf0f7;
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.detail-kpis span {
+  display: block;
+  margin-bottom: 6px;
+}
+
+@media (max-width: 720px) {
+  .employee-hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+  .detail-list > div {
+    grid-template-columns: auto 92px 1fr;
+  }
+}
