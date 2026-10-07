@@ -84,6 +84,16 @@ const authSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
+      .addCase(bootstrapSession.fulfilled, (state, action) => {
+        state.ready = true;
+        state.token = action.payload?.token ?? null;
+        state.user = action.payload?.user ?? null;
+      })
+      .addCase(bootstrapSession.rejected, (state) => {
+        state.ready = true;
+        state.token = null;
+        state.user = null;
+      })
       .addCase(loginUser.pending, (state) => {
         state.loading = true;
         state.error = null;
