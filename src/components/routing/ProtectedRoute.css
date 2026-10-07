@@ -1,0 +1,21 @@
+.route-loading {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #f7faff;
+}
+
+.loading-dot {
+  width: 34px;
+  height: 34px;
+  border: 3px solid #dbe7f6;
+  border-top-color: #2563eb;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
