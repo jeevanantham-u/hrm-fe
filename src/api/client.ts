@@ -2,8 +2,7 @@ import axios from "axios";
 import { clearSession, loadSession } from "../utils/storage";
 
 const api = axios.create({
-  baseURL:
-    import.meta.env.VITE_API_BASE_URL || "https://jeevanantham.freedev.app/v1",
+  baseURL:"https://jeevanantham.freedev.app/v1",
   headers: { "Content-Type": "application/json" },
   timeout: 12000,
 });
